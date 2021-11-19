@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Definition for a binary tree node.
+         * function TreeNode(val, left, right) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.left = (left===undefined ? null : left)
+         *     this.right = (right===undefined ? null : right)
+         * }
+         */
+        function TreeNode(val) {
+            this.val = val;
+            this.left = null;
+            this.right = null;
+        }
+
+        /**
+         *       A
+         *      / \
+         *     B   C
+         *    /
+         *   D
+         *  /
+         * E
+         * */
+        function createTree() {
+            const root = new TreeNode('A');
+            root.left = new TreeNode('B');
+            root.right = new TreeNode('C');
+            root.left.left = new TreeNode('D');
+            root.left.left.left = new TreeNode('E');
+
+            return root;
+        }
+
+        //前序遍历
+        function PreOrderTraverse(root) {
+            if (!root) return;
+            console.log(root.val);
+            PreOrderTraverse(root.left);
+            PreOrderTraverse(root.right);
+        }
+
+        //中序遍历
+        function InOrderTraverse(root) {
+            if (!root) return;
+            InOrderTraverse(root.left);
+            console.log(root.val);
+            InOrderTraverse(root.right);
+        }
+
+        //后续遍历
+        function PostOrderTraverse(root) {
+            if (!root) return;
+            PostOrderTraverse(root.left);
+            PostOrderTraverse(root.right);
+            console.log(root.val);
+        }
+
+        let myTree = createTree();
+        console.log('前序遍历')
+        PreOrderTraverse(myTree);
+        console.log('中序遍历')
+        InOrderTraverse(myTree);
+        console.log('后续遍历')
+        PostOrderTraverse(myTree);
+    </script>
+</body>
+
+</html>
