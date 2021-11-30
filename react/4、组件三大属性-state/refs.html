@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../包/旧版本/react.development.js"></script>
+    <script src="../包/旧版本/react-dom.development.js"></script>
+    <script src="../包/旧版本/babel.min.js"></script>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            showData = () => {
+                const { value } = this.input1;
+                alert(value);
+            }
+            showData2 = () => {
+                const { value } = this.input2;
+                alert(value);
+            }
+            render() {
+                return (
+                    <div>
+                        <input ref={c => this.input1 = c} type="text" placeholder="点击提示数据"/>&nbsp;
+                        <button onClick={this.showData}>点击提示左侧数据</button>&nbsp;
+                        <input ref={c => this.input2 = c} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"/>&nbsp;
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<MyComponent/>, document.getElementById('test'));
+    </script>
+</body>
+</html>
