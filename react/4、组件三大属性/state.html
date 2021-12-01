@@ -14,10 +14,10 @@
 
     <script type="text/babel">
         class Weather extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { isHot: true };
-            }
+            // constructor(props) {
+            //     super(props);
+            // }
+            state = { isHot: true };
             changeWeather = () => {
                 this.setState({ isHot: !this.state.isHot });
             }
